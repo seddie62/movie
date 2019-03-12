@@ -6,6 +6,7 @@
                 <img slot="cover" class="img-card rounded" :src="`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`" alt="">
                 <div>
                     <a-menu v-model="current" mode="horizontal">
+                        <a-menu-item key="info">Info</a-menu-item>
                         <a-menu-item key="details">Details</a-menu-item>
                         <a-menu-item key="reviews">Reviews</a-menu-item>
                         <a-menu-item key="cast">Cast</a-menu-item>
@@ -18,6 +19,7 @@
                         <movie-genres :genres="genres"></movie-genres>
                     </a-col>
                     <a-col :span="17" :offset="1">
+                        <movie-info :movie="movie" v-if="isInfo"></movie-info>
                         <movie-overview :overview="overview" v-if="isDetail"></movie-overview>
                         <movie-reviews v-if="isReview"></movie-reviews>
                         <movie-cast v-if="isCast"></movie-cast>
@@ -34,6 +36,7 @@ import MovieGenres from '../components/MovieGenres'
 import MovieOverview from '../components/MovieOverview'
 import MovieCast from '../components/MovieCast'
 import MovieReviews from '../components/MovieReviews'
+import MovieInfo from '../components/MovieInfo'
 
 export default {
   name: 'MovieDetail',
@@ -41,11 +44,12 @@ export default {
     MovieReviews,
     MovieOverview,
     MovieGenres,
+    MovieInfo,
     MovieCast
   },
   data () {
     return {
-      current: ['details']
+      current: ['info']
     }
   },
   created () {
@@ -75,6 +79,10 @@ export default {
     // if menu is review
     isReview () {
       return this.current[0] === 'reviews'
+    },
+    // if menu is review
+    isInfo () {
+      return this.current[0] === 'info'
     }
   }
 }
