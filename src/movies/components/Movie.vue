@@ -1,6 +1,6 @@
 <template>
     <div id="movie-comp">
-        <a-card class="movie-card" :bordered="false">
+        <a-card class="movie-card cursor" @click="goToDetail" :bordered="false">
             <!-- card images -->
             <img slot="cover" class="img-card" :src="`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`" alt="">
             <div class="movie-card-content">
