@@ -1,4 +1,5 @@
 <template>
+<!-- movie cast biography -->
     <a-spin :spinning="loading">
         <div class="cast-biography">
             <h4 class="my-2">{{person.name}}</h4>
@@ -11,6 +12,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { LOADING } from '../../utils/constants'
+
 export default {
   name: 'CastBiography',
   computed: {

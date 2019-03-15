@@ -1,5 +1,5 @@
 import { GET_CURRENT_CAST, GET_CURRENT_CAST_STATE, GET_CURRENT_CAST_MOVIES, GET_CURRENT_CAST_MOVIES_STATE,
-  GET_CURRENT_CAST_TV, GET_CURRENT_CAST_TV_STATE, GET_PERSON_URI } from './store_constants'
+  GET_CURRENT_CAST_TV, GET_CURRENT_CAST_TV_STATE, GET_PERSON_URI, API_KEY } from './store_constants'
 import { apiCall } from '../../utils/apiCall'
 
 // state
@@ -59,7 +59,7 @@ const actions = {
     commit(GET_CURRENT_CAST_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `${GET_PERSON_URI}${personId}?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `${GET_PERSON_URI}${personId}?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_CURRENT_CAST_STATE, 'DATA')
@@ -76,7 +76,7 @@ const actions = {
     commit(GET_CURRENT_CAST_MOVIES_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `${GET_PERSON_URI}${personId}/movie_credits?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `${GET_PERSON_URI}${personId}/movie_credits?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_CURRENT_CAST_MOVIES_STATE, 'DATA')
@@ -93,7 +93,7 @@ const actions = {
     commit(GET_CURRENT_CAST_TV_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `${GET_PERSON_URI}${personId}/tv_credits?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `${GET_PERSON_URI}${personId}/tv_credits?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_CURRENT_CAST_TV_STATE, 'DATA')

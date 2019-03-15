@@ -36,7 +36,7 @@ import { mapGetters } from 'vuex'
 import CastBiography from '../components/CastBiography'
 import PersonalInfo from '../components/PersonalInfo'
 import CastMovies from '../components/CastMovies'
-import { GET_CURRENT_CAST, GET_CURRENT_CAST_MOVIES, GET_CURRENT_CAST_TV } from '../../store/modules/store_constants.js'
+import { GET_CURRENT_CAST, GET_CURRENT_CAST_MOVIES, GET_CURRENT_CAST_TV } from '../store/store_constants.js'
 
 export default {
   name: 'MovieDetail',

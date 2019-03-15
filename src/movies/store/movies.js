@@ -115,7 +115,7 @@ const actions = {
     var url = ''
     var query = Utils.createQueryParams(state.movies.filters, page)
 
-    url = Utils.present(filters.search) ? `/search/movie?${API_KEY}&query=${filters.search}&page=${page}` : `discover/movie?api_key=24b0bd8ee93b847008cd2091a7e2704a&${query}`
+    url = Utils.present(filters.search) ? `/search/movie?${API_KEY}&query=${filters.search}&page=${page}` : `discover/movie?${API_KEY}&${query}`
     // configuration
     if (cache && state.movies.data.length !== 0) {
       commit(MOVIES_STATE, 'DATA')
@@ -144,8 +144,8 @@ const actions = {
     commit(MOVIE_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `movie/${id}?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
-        method: 'GET'
+        url: `movie/${id}?${API_KEY}`,
+        method: 'GET',
       }).then((response) => {
         commit(MOVIE_STATE, 'DATA')
         console.log('single movie', response)
@@ -163,7 +163,7 @@ const actions = {
     commit(GET_MOVIE_REVIEWS_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `/movie/${id}/reviews?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `/movie/${id}/reviews?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_MOVIE_REVIEWS_STATE, 'DATA')
@@ -181,7 +181,7 @@ const actions = {
     commit(GET_MOVIE_CAST_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `/movie/${id}/credits?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `/movie/${id}/credits?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_MOVIE_CAST_STATE, 'DATA')
@@ -199,7 +199,7 @@ const actions = {
     commit(GET_CURRENT_CAST_STATE, 'LOADING')
     return new Promise((resolve, reject) => {
       apiCall({
-        url: `/movie/${id}/credits?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+        url: `/movie/${id}/credits?${API_KEY}`,
         method: 'GET'
       }).then((response) => {
         commit(GET_CURRENT_CAST_STATE, 'DATA')

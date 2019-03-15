@@ -1,13 +1,20 @@
 <template>
     <a-spin :spinning="loading">
         <div class="cast-movies">
+            <!-- when there's no data -->
             <empty-component v-if="noData" message="No Data"></empty-component>
+
+            <!-- other movies the actor has played a role in -->
             <div v-else class="flex flex-wrap">
                 <a-card id="cast-card" class="cast-card rounded" v-for="(cast, index) in data.slice(0, number)" :key="index" hoverable style="width: 140px">
                     <img alt="" :src="`https://image.tmdb.org/t/p/w200${cast.poster_path}`" slot="cover"/>
                     <a-card-meta>
-                        <template slot="title"><p class="m-0 f-12 cast-movie-title">{{cast[title]}}</p></template>
-                        <template slot="description"><p class="mb-1 f-12 cast-movie-character">{{cast.character}}</p></template>
+                        <template slot="title">
+                            <p class="m-0 f-12 cast-movie-title">{{cast[title]}}</p>
+                        </template>
+                        <template slot="description">
+                            <p class="mb-1 f-12 cast-movie-character">{{cast.character}}</p>
+                        </template>
                     </a-card-meta>
                 </a-card>
                 <div class="h-300 flex align-items-center">

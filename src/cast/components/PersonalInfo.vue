@@ -1,4 +1,5 @@
 <template>
+<!-- this component shows the personal information of a single cast -->
     <a-spin :spinning="loading">
         <div class="cast-info">
             <div class="flex align-items-center my-2">

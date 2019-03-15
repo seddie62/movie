@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
-import movies from './modules/movies'
+import movies from '../movies/store/movies'
 import extra from './modules/extra'
-import person from './modules/person'
+import person from '../cast/store/person'
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 

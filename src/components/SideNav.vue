@@ -9,10 +9,6 @@
                 <a-icon type="global" />
                 <span>Movies</span>
             </a-menu-item>
-            <!-- <a-menu-item key="2">
-                <a-icon type="desktop" />
-                <span>TV</span>
-            </a-menu-item> -->
         </a-menu>
     </div>
 </template>

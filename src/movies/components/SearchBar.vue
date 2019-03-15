@@ -2,9 +2,9 @@
     <div id="search">
         <a-card :bordered="false">
             <div class="flex justify-content-between w-100 align-items-center">
-                <a-input placeholder="Search..." class="no-border-input" v-model="form.search">
+                <a-input-search placeholder="Search..." class="no-border-input" v-model="form.search">
                     <a-icon slot="prefix" type="search" />
-                </a-input>
+                </a-input-search>
                 <div class="flex align-items-center h-100">
                     <a-select
                         v-model="form.year"
@@ -60,13 +60,15 @@ export default {
       return option.componentOptions.children[0].text.toLowerCase().indexOf(input.toLowerCase()) >= 0
     },
     handleChange () {
-      if (this.form.genre === 'all') {
-        delete this.form.genre
-      }
-      if (this.form.year === 'all') {
-        delete this.form.year
-      }
-      this.$store.dispatch('setMoviesFilters', this.form)
+        setTimeout(() => {
+            if (this.form.genre === 'all') {
+                delete this.form.genre
+            }
+            if (this.form.year === 'all') {
+                delete this.form.year
+            }
+            this.$store.dispatch('setMoviesFilters', this.form)
+        }, 1000)
     }
   },
   computed: {

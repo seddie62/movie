@@ -1,11 +1,14 @@
 $orange: #fcbc0d;
 
 .no-border-input{
-    border: 0;
+    border: 0 !important;
 
-    &:focus {
+    input{
         border: 0;
-        box-shadow: none;
+        &:focus {
+            border: 0 !important;
+            box-shadow: none !important;
+        }
     }
 }
 
