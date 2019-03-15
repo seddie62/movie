@@ -3,10 +3,15 @@ export default {
     var query = `page=${page}`
     if (this.present(filters)) {
       if (this.present(filters.genre)) {
-        query = query + `&with_genres=${filters.genre}`
+        if (filters.genre.find(el => el !== 'all')) {
+            query = query + `&with_genres=${filters.genre}`
+        }
       }
       if (this.present(filters.year)) {
         query = query + `&year=${filters.year}`
+      }
+      if (this.present(filters.sort_params)) {
+        query = query + `&sort_by=${filters.sort_params}`
       }
     }
     return query
