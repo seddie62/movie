@@ -34,5 +34,20 @@ export default {
   },
   empty (value) {
     return !this.present(value)
-  }
+  },
+  convertToHoursAndMinutes (value) {
+    if (value === 0 || typeof value === 'undefined') {
+        return '00h 00m'
+      } else {
+        var num = value
+        var hours = (num / 60)
+        var rhours = Math.floor(hours)
+        var minutes = (hours - rhours) * 60
+        var rminutes = Math.round(minutes)
+        // var timeArray = new Array
+        var parsedHours = rhours < 10 ? '0' + rhours : rhours
+        var parsedMinutes = rminutes < 10 ? '0' + rminutes : rminutes
+        return `${parsedHours}h ${parsedMinutes}m`
+      }
+  },
 }

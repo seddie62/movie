@@ -13,6 +13,10 @@
                 <h4 class="p-0 m-0">{{movie.known_for_department}}</h4>
             </div>
             <div class="flex align-items-center my-2">
+                <h5>Runtime</h5>
+                <h4 class="p-0 m-0">{{runtime}}</h4>
+            </div>
+            <div class="flex align-items-center my-2">
                 <h5>release date</h5>
                 <h4 class="p-0 m-0">{{movie.release_date}}</h4>
             </div>
@@ -32,12 +36,16 @@
 </template>
 
 <script>
+import Utils from '../../utils/services'
 export default {
   name: 'MovieInfo',
   props: ['movie'],
   computed: {
     rate () {
       return this.movie.vote_average / 2
+    },
+    runtime () {
+      return Utils.convertToHoursAndMinutes(this.movie.runtime)
     }
   }
 }
@@ -51,9 +59,13 @@ export default {
     color: #bababa;
     font-weight: bold;
     width: 30%;
+    margin: 0;
+    padding: 0;
   }
   p{
     font-size: 12px;
+    margin: 0;
+    padding: 0;
   }
 }
 </style>

@@ -1,4 +1,4 @@
-import { GENRES_STATE, GET_GENRES, GET_GENRES_URI } from './store_constants'
+import { GENRES_STATE, GET_GENRES, GET_GENRES_URI, API_KEY } from './store_constants'
 import { apiCall } from '../../utils/apiCall'
 
 // state
@@ -37,16 +37,14 @@ const actions = {
     } else {
       return new Promise((resolve, reject) => {
         apiCall({
-          url: `${GET_GENRES_URI}?api_key=24b0bd8ee93b847008cd2091a7e2704a`,
+          url: `${GET_GENRES_URI}?${API_KEY}`,
           method: 'GET'
         }).then((response) => {
           commit(GENRES_STATE, 'DATA')
-          console.log('response', response)
           commit(GET_GENRES, response.data)
           resolve(response)
         }).catch((error) => {
           commit(GENRES_STATE, 'ERROR')
-          console.log(error)
           reject(error)
         })
       })

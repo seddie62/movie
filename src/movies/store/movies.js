@@ -126,13 +126,11 @@ const actions = {
           method: 'GET'
         }).then((response) => {
           commit(MOVIES_STATE, 'DATA')
-          console.log('response', response)
           commit(MOVIES_FETCH, response.data)
           commit(SET_MOVIES_META, response.data)
           resolve(response)
         }).catch((error) => {
           commit(MOVIES_STATE, 'ERROR')
-          console.log(error)
           reject(error)
         })
       })
@@ -148,7 +146,6 @@ const actions = {
         method: 'GET',
       }).then((response) => {
         commit(MOVIE_STATE, 'DATA')
-        console.log('single movie', response)
         commit(GET_MOVIE, response.data)
         resolve(response)
       }).catch((error) => {
@@ -214,7 +211,6 @@ const actions = {
 
   [SET_MOVIES_FILTERS] ({ commit, dispatch }, filters) {
     commit(SET_MOVIES_FILTERS, filters)
-    console.log('here')
     dispatch(MOVIES_FETCH, { cache: false })
   }
 }
