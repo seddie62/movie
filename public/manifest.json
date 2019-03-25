@@ -1,6 +1,6 @@
 {
-  "name": "testing-v3",
-  "short_name": "testing-v3",
+  "name": "db-movie",
+  "short_name": "db-movie",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

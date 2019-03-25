@@ -26,7 +26,7 @@
                         <a-divider orientation="right">genres</a-divider>
                         <div class="flex genres justify-content-end">
                             <ul>
-                                <li v-for="(item, index) in movieGenres" :key="index">
+                                <li class="genres-list" v-for="(item, index) in movieGenres" :key="index">
                                     {{item.name}}
                                 </li>
                             </ul>
@@ -66,10 +66,12 @@ export default {
     movieGenres () {
       var newMovieGenres = []
 
-      this.movie.genre_ids.forEach(element => {
-        var g = this.genres.find(genre => genre.id === element)
-        newMovieGenres.push(g)
-      })
+      if (this.genres.length !== 0) {
+        this.movie.genre_ids.forEach(element => {
+            var g = this.genres.find(genre => genre.id === element)
+            newMovieGenres.push(g)
+        })
+      }
 
       return newMovieGenres
     },

@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import CastMovies from '@/person/components/CastMovies.vue'
+import CastMovies from '@/cast/components/CastMovies.vue'
 import Antd from 'ant-design-vue'
 const localVue = createLocalVue()
 localVue.use(Antd)

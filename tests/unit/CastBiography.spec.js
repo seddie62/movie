@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import CastBiography from '@/person/components/CastBiography.vue'
+import CastBiography from '@/cast/components/CastBiography.vue'
 import Antd from 'ant-design-vue'
 import Vuex from 'vuex'
 

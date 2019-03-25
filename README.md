@@ -1,7 +1,4 @@
-# testing-v3
-
-#live on
-https://ant-moviedb.surge.sh
+# db-movie
 
 ## Project setup
 ```

@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray h-100">
+    <div class="bg-gray h-100 home">
         <search-bar></search-bar>
         <a-spin :spinning="moviesLoading">
             <div class="movie-div">
